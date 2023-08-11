@@ -1,5 +1,35 @@
 local M = {}
 
+local config = require("tabtree.config")
+
+function M.setup(options)
+	if options == nil then
+		options = {}
+	end
+
+	-- merge user supplied options with defaults..
+	for k, v in pairs(options) do
+		config.options[k] = v
+	end
+
+	if config.options["key_bindings_disabled"] == true then
+		return
+	end
+
+	vim.api.nvim_set_keymap(
+		"n",
+		config.options.key_bindings["next"],
+		":lua require('tabtree').next()<CR>",
+		{ noremap = true, silent = true }
+	)
+	vim.api.nvim_set_keymap(
+		"n",
+		config.options.key_bindings["previous"],
+		":lua require('tabtree').previous()<CR>",
+		{ noremap = true, silent = true }
+	)
+end
+
 -- A function to determine if a given node is a target for navigation
 local function is_target_node(bufnr, node)
 	local node_type = node:type()
