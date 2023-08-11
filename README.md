@@ -37,12 +37,14 @@ operates in Insert mode:
     config = function()
       require("tabtree").setup({
         -- disable key bindings
-        -- key_bindings_disabled = true,
+        --key_bindings_disabled = true,
 
         -- Override default keybindings
         key_bindings = {
-          next = "<M-Right>",
-          previous = "<M-Left>",
+          next = "<Tab>",
+          previous = "<S-Tab>",
+          --next = "<M-Right>",
+          --previous = "<M-Left>",
         },
       })
     end,
