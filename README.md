@@ -8,7 +8,8 @@ TabTree is a Vim plugin designed to enhance navigation within code by leveraging
 
 ### Keys
 
-Default key bindings for Normal mode:
+Default key bindings for Normal mode, these should not interfere with `nvim-cmp` which
+operates in Insert mode:
 
 | Key       | Action                          |
 | --------- | ------------------------------- |
