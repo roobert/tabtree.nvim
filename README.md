@@ -2,7 +2,7 @@
 
 ## Overview
 
-TabTree is a Vim plugin designed to enhance navigation within code by leveraging the power of Tree-sitter. It allows users to jump between significant code elements, such as brackets, quotes, and special string literals (e.g., f-strings in Python), with simple keybindings.
+TabTree is a Neovim plugin designed to enhance navigation within code by leveraging the power of Tree-sitter. It allows users to jump between significant code elements, such as brackets, quotes, and special string literals (e.g., f-strings in Python), with simple keybindings.
 
 ## Usage
 
