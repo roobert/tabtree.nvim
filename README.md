@@ -6,6 +6,8 @@ TabTree is a Vim plugin designed to enhance navigation within code by leveraging
 
 ## Usage
 
+### Keys
+
 Default key bindings for Normal mode:
 
 | Key       | Action                          |
@@ -13,9 +15,7 @@ Default key bindings for Normal mode:
 | `<Tab>`   | `require('tabtree').next()`     |
 | `<S-Tab>` | `require('tabtree').previous()` |
 
-## Installation
-
-### LazyVim
+### LazyVim Installation
 
 ```lua
   { "roobert/tabtree.nvim" }
