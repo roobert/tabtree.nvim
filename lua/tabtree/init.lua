@@ -1,6 +1,6 @@
 local M = {}
 
--- Helper function to determine if a given node is a target for navigation
+-- A function to determine if a given node is a target for navigation
 local function is_target_node(bufnr, node)
 	local node_type = node:type()
 	local start_row, start_col, _, _ = node:range()
@@ -34,21 +34,18 @@ local function is_target_node(bufnr, node)
 		return true, 0
 	end
 
-	-- If none of the above conditions are met, return false
 	return false, 0
 end
 
--- Function to jump to the next target node in the buffer
-function M.jump_to_next_node()
-	local bufnr = vim.api.nvim_get_current_buf() -- Get the current buffer number
-	local parser = vim.treesitter.get_parser(bufnr) -- Initialize the Tree-sitter parser
+function M.next()
+	local bufnr = vim.api.nvim_get_current_buf()
+	local parser = vim.treesitter.get_parser(bufnr)
 	local tree = parser:parse()[1]
 
 	if not tree then
-		return -- If no tree is found, exit the function
+		return
 	end
 
-	-- Get the cursor's current line and column position
 	local cursor_line = vim.fn.line(".") - 1
 	local cursor_col = vim.fn.col(".") - 1
 	local cursor_node = tree:root():descendant_for_range(cursor_line, cursor_col, cursor_line, cursor_col)
@@ -78,11 +75,8 @@ function M.jump_to_next_node()
 	end
 end
 
--- Function to jump to the previous target node in the buffer
-function M.jump_to_previous_node()
-	-- Get the current buffer number
+function M.previous()
 	local bufnr = vim.api.nvim_get_current_buf()
-	-- Initialize the Tree-sitter parser
 	local parser = vim.treesitter.get_parser(bufnr)
 	local tree = parser:parse()[1]
 
@@ -90,7 +84,6 @@ function M.jump_to_previous_node()
 		return
 	end
 
-	-- Get the cursor's current line and column position
 	local cursor_line = vim.fn.line(".") - 1
 	local cursor_col = vim.fn.col(".") - 1
 	local cursor_node = tree:root():descendant_for_range(cursor_line, cursor_col, cursor_line, cursor_col)
