@@ -33,13 +33,15 @@ LazyVim example:
 
 ### Configuration
 
+Override any configuration option by passing an options table to the setup function:
+
 ```lua
   {
     "roobert/tabtree.nvim",
     config = function()
       require("tabtree").setup({
         -- print the capture group name when executing next/previous
-        debug = true,
+        --debug = true,
 
         -- disable key bindings
         --key_bindings_disabled = true,
