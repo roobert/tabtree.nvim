@@ -19,7 +19,12 @@ operates in Insert mode:
 ### LazyVim Installation
 
 ```lua
-  { "roobert/tabtree.nvim" }
+  {
+    "roobert/tabtree.nvim",
+    config = function()
+      require("tabtree").setup()
+    end,
+  },
 ```
 
 ### Configuration
@@ -39,7 +44,7 @@ operates in Insert mode:
         },
       })
     end,
-  }
+  },
 ```
 
 ## References
