@@ -18,7 +18,7 @@ Default key bindings for `Normal` mode, these should not interfere with `nvim-cm
 | `<Tab>`   | `require('tabtree').next()`     |
 | `<S-Tab>` | `require('tabtree').previous()` |
 
-### Vim Installation
+### Installation
 
 LazyVim example:
 
