@@ -6,6 +6,8 @@
 
 TabTree is a Neovim plugin designed to enhance navigation within code by leveraging the power of Tree-sitter. It allows users to jump between significant code elements, such as brackets, quotes, etc.
 
+Additional language configs welcome as PRs!
+
 ## Usage
 
 ### Keys
