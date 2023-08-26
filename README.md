@@ -53,7 +53,7 @@ Override any configuration option by passing an options table to the setup funct
           previous = "<S-Tab>",
         },
 
-        -- use TSPlaygroundToggle to discover the (capture group)
+        -- use :InspectTree to discover the (capture group)
         -- @capture_name can be anything
         language_configs = {
           python = {
