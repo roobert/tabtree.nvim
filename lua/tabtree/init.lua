@@ -45,7 +45,14 @@ end
 
 function M.next()
 	local bufnr = vim.api.nvim_get_current_buf()
-	local lang = vim.api.nvim_buf_get_option(bufnr, "filetype")
+	local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+	local lang = vim.treesitter.language.get_lang(ft)
+	if lang == nil then
+		if config.options.debug then
+			error("no parsers found for " .. ft)
+		end
+		return
+	end
 	local target_query, offsets = get_language_config(lang)
 	local parser = vim.treesitter.get_parser(bufnr, lang)
 	local tree = parser:parse()[1]
@@ -64,7 +71,14 @@ end
 
 function M.previous()
 	local bufnr = vim.api.nvim_get_current_buf()
-	local lang = vim.api.nvim_buf_get_option(bufnr, "filetype")
+	local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+	local lang = vim.treesitter.language.get_lang(ft)
+	if lang == nil then
+		if config.options.debug then
+			error("no parsers found for " .. ft)
+		end
+		return
+	end
 	local target_query, offsets = get_language_config(lang)
 	local parser = vim.treesitter.get_parser(bufnr, lang)
 	local tree = parser:parse()[1]
